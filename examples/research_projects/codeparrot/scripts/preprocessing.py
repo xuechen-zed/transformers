@@ -25,6 +25,7 @@ def line_stats(example):
 def alpha_stats(example):
     """Calculates mean and max line length of file."""
     alpha_frac = np.mean([c.isalnum() for c in example["content"]])
+    """isalnum函数检测字符串是否由字母和数字组成"""
     return {"alpha_frac": alpha_frac}
 
 

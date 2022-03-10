@@ -81,6 +81,7 @@ def compress_file(file_path):
     with open(file_path, "rb") as f_in:
         with gzip.open(file_path + ".gz", "wb", compresslevel=6) as f_out:
             shutil.copyfileobj(f_in, f_out)
+            """复制file-like对象"""
     os.unlink(file_path)
 
 
@@ -93,7 +94,7 @@ if args.num_workers is None:
 # Load dataset
 t_start = time.time()
 ds = load_dataset(args.dataset_name, split="train")
-print(f"Time to load dataset: {time.time()-t_start:.2f}")
+print(f"Time to load dataset: {time.time()-t_start:.2f}")   #':.2f'保留两位小数
 
 # Run preprocessing
 t_start = time.time()
